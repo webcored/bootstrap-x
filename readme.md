@@ -4,12 +4,12 @@
 
 Framework agnostic bootstrap web components powered with stenciljs
 
-Knock of importing jQuery & leverage the functionalties of webcomponents
+Knock of jQuery dependency in your boostrap & leverage the functionalties of webcomponents
 
 ## Pros
   * Simple to use & knock of other library requirements
   * Framework agnostic
-  * Invoke web components & it's methods programmatically [ex: dom.close()]
+  * Invoke web components programmatically [ex: alert.close()]
   * Bootstrap equvalent methods and events [ex: onClose => performSomething()]
 
 ## Getting Started
