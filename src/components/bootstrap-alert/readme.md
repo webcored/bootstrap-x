@@ -8,22 +8,24 @@ A simple alert component
 <bootstrap-alert message="In ❤️ with stenciljs" />
 ```
 
+## Properties [[API](#properties)]
+
 Dismissible alert
 ```
 <bootstrap-alert dismissible />
 ```
-Type variants
+Type variants [API]
 ```
 <bootstrap-alert type="info" messgage="Hello web world" />
 ```
 
-for list of available types please check below.
+for list of available types please check [[API](#properties)].
 
 <hr>
 
-# Methods
+## Methods [[API](#methods)]
 
-## alert
+### alert
 Makes a bootstrap-alert component into a dismissible one
 
 simple js example:
@@ -33,7 +35,7 @@ let bootstrapAlert = document.querySelector('bootstrap-alert');
 bootstrapAlert.alert();
 ```
 
-## close
+### close
 Closes & destroys a bootstrap-alert component
 
 simple js example:
@@ -43,7 +45,7 @@ let bootstrapAlert = document.querySelector('bootstrap-alert');
 bootstrapAlert.close();
 ```
 
-## dispose
+### dispose
 Destroys a bootstrap-alert component
 
 simple js example:
@@ -55,7 +57,7 @@ bootstrapAlert.dispose();
 
 <hr>
 
-# Events
+## Events  [[API](#events)]
 
 ## onClosing
 Event will be triggered when the close method is called.
