@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-x",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "A Bootstrap web components library, Powered with Stenciljs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,5 +28,8 @@
   "dependencies": {
     "@types/jest": "^26.0.2"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/bootstrap-x/bootstrap-x.git"
+  }
 }
