@@ -1,11 +1,11 @@
 import { Component, ComponentInterface, h, Prop, Element, Host, Event, Method, EventEmitter } from '@stencil/core';
 import { types } from '../../shared/bootstrap.dto';
 @Component({
-  tag: 'bootstrap-alert',
-  styleUrl: 'bootstrap-alert.css',
+  tag: 'bx-alert',
+  styleUrl: 'bx-alert.css',
   shadow: false,
 })
-export class BootstrapAlert implements ComponentInterface {
+export class BxAlert implements ComponentInterface {
   @Element() private element: HTMLElement;
 
   @Prop() type: types = types.primary;

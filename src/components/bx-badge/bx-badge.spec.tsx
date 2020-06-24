@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BootstrapBadge } from './bootstrap-badge';
+import { BxBadge } from './bx-badge';
 
-describe('bootstrap-badge', () => {
+describe('bx-badge', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [BootstrapBadge],
-      html: `<bootstrap-badge></bootstrap-badge>`,
+      components: [BxBadge],
+      html: `<bx-badge></bx-badge>`,
     });
     expect(page.root).toEqualHtml(`
-      <bootstrap-badge>
+      <bx-badge>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </bootstrap-badge>
+      </bx-badge>
     `);
   });
 });

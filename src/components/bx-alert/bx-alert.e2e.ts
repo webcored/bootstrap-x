@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('bootstrap-badge', () => {
+describe('bx-alert', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<bootstrap-badge></bootstrap-badge>');
+    await page.setContent('<bx-alert></bx-alert>');
 
-    const element = await page.find('bootstrap-badge');
+    const element = await page.find('bx-alert');
     expect(element).toHaveClass('hydrated');
   });
 });

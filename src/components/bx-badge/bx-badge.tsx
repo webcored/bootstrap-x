@@ -2,11 +2,11 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 import { types } from '../../shared/bootstrap.dto';
 
 @Component({
-  tag: 'bootstrap-badge',
-  styleUrl: 'bootstrap-badge.css',
+  tag: 'bx-badge',
+  styleUrl: 'bx-badge.css',
   shadow: false,
 })
-export class BootstrapBadge implements ComponentInterface {
+export class BxBadge implements ComponentInterface {
   @Prop() type: types = types.primary;
   @Prop() content: string;
   @Prop() pill: boolean = false;

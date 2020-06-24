@@ -1,28 +1,28 @@
-# bootstrap-alert
+# bx-alert
 Bootstrap alert component
 
 # usage
 
 A simple alert component
 ```
-<bootstrap-alert message="In ❤️ with stenciljs" />
+<bx-alert message="In ❤️ with stenciljs" />
 
 -- or --
 
-<bootstrap-alert>
+<bx-alert>
   In ❤️ with stenciljs
-</bootstrap-alert>
+</bx-alert>
 ```
 
 ## Properties [[API](#properties)]
 
 Dismissible alert
 ```
-<bootstrap-alert dismissible />
+<bx-alert dismissible />
 ```
 Type variants
 ```
-<bootstrap-alert type="info" messgage="Hello web world" />
+<bx-alert type="info" messgage="Hello web world" />
 ```
 
 for list of available types please check [[API](#properties)].
@@ -32,32 +32,32 @@ for list of available types please check [[API](#properties)].
 ## Methods [[API](#methods)]
 
 ### alert
-Makes a bootstrap-alert component into a dismissible one
+Makes a bx-alert component into a dismissible one
 
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bootstrap-alert');
+let bootstrapAlert = document.querySelector('bx-alert');
 bootstrapAlert.alert();
 ```
 
 ### close
-Closes & destroys a bootstrap-alert component
+Closes & destroys a bx-alert component
 
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bootstrap-alert');
+let bootstrapAlert = document.querySelector('bx-alert');
 bootstrapAlert.close();
 ```
 
 ### dispose
-Destroys a bootstrap-alert component
+Destroys a bx-alert component
 
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bootstrap-alert');
+let bootstrapAlert = document.querySelector('bx-alert');
 bootstrapAlert.dispose();
 ```
 
@@ -69,16 +69,16 @@ bootstrapAlert.dispose();
 Event will be triggered when the close method is called.
 
 ```
-<bootstrap-alert dismissible onClosing=() => doSomething() />
+<bx-alert dismissible onClosing=() => doSomething() />
 ```
 
 ## onClosed
-Event will be triggered when the bootstrap-alert has been closed
+Event will be triggered when the bx-alert has been closed
 > will wait for CSS transitions to complete
 
 simple js example:
 ```
-let bootstrapAlert = document.querySelector('bootstrap-alert');
+let bootstrapAlert = document.querySelector('bx-alert');
 bootstrapAlert.addEventListener('closed', () => performSomething());
 ```
 

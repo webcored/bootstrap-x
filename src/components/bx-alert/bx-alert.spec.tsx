@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BootstrapAlert } from './bootstrap-alert';
+import { BxAlert } from './bx-alert';
 
-describe('bootstrap-alert', () => {
+describe('bx-alert', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [BootstrapAlert],
-      html: `<bootstrap-alert></bootstrap-alert>`,
+      components: [BxAlert],
+      html: `<bx-alert></bx-alert>`,
     });
     expect(page.root).toEqualHtml(`
-      <bootstrap-alert>
+      <bx-alert>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </bootstrap-alert>
+      </bx-alert>
     `);
   });
 });

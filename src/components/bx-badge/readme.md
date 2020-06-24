@@ -1,24 +1,24 @@
-# bootstrap-badge
+# bx-badge
 Bootstrap badge component
 
 # usage
 
 A simple badge component
 ```
-<bootstrap-badge content="Open" />
+<bx-badge content="Open" />
 
 -- or --
 
-<bootstrap-badge>
+<bx-badge>
   Merged
-</bootstrap-badge>
+</bx-badge>
 ```
 
 ## Properties [[API](#properties)]
 
 Type variants
 ```
-<bootstrap-badge type="danger">Closed</bootstrap-badge>
+<bx-badge type="danger">Closed</bx-badge>
 ```
 for list of available types please check [[API](#properties)].
 
@@ -28,7 +28,7 @@ pill
 > More rounded pill badges
 
 ```
-<bootstrap-badge pill>Circled</bootstrap-badge>
+<bx-badge pill>Circled</bx-badge>
 ```
 
 link
@@ -44,12 +44,12 @@ target
 ## Invoke programmatically
 
 ### pill
-Convert a simple bootstrap-badge component to pill
+Convert a simple bx-badge component to pill
 
 simple js example:
 
 ```
-let bootstrapBadge = document.querySelector('bootstrap-badge');
+let bootstrapBadge = document.querySelector('bx-badge');
 bootstrapBadge.pill = true;
 ```
 
@@ -59,7 +59,7 @@ Adding link and target
 simple js example:
 
 ```
-let bootstrapBadge = document.querySelector('bootstrap-badge');
+let bootstrapBadge = document.querySelector('bx-badge');
 bootstrapBadge.link = "https://stenciljs.com/";
 bootstrapBadge.target = "_top";
 ```
