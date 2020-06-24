@@ -6,6 +6,12 @@ Bootstrap alert component
 A simple alert component
 ```
 <bootstrap-alert message="In ❤️ with stenciljs" />
+
+-- or --
+
+<bootstrap-alert>
+  In ❤️ with stenciljs
+</bootstrap-alert>
 ```
 
 ## Properties [[API](#properties)]
@@ -14,7 +20,7 @@ Dismissible alert
 ```
 <bootstrap-alert dismissible />
 ```
-Type variants [API]
+Type variants
 ```
 <bootstrap-alert type="info" messgage="Hello web world" />
 ```
@@ -83,11 +89,11 @@ bootstrapAlert.addEventListener('closed', () => performSomething());
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                                                            | Default                                        |
-| ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| `dismissible` | `dismissible` |             | `boolean`                                                                                                                       | `false`                                        |
-| `message`     | `message`     |             | `string`                                                                                                                        | `` A simple ${this.type} alert—check it out!`` |
-| `type`        | `type`        |             | `types.danger \| types.dark \| types.info \| types.light \| types.primary \| types.secondary \| types.success \| types.warning` | `types.primary`                                |
+| Property      | Attribute     | Description | Type                                                                                                                            | Default         |
+| ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `dismissible` | `dismissible` |             | `boolean`                                                                                                                       | `false`         |
+| `message`     | `message`     |             | `string`                                                                                                                        | `undefined`     |
+| `type`        | `type`        |             | `types.danger \| types.dark \| types.info \| types.light \| types.primary \| types.secondary \| types.success \| types.warning` | `types.primary` |
 
 
 ## Events

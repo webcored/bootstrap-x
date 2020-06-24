@@ -5,14 +5,21 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { types, } from "./components/bootstrap-alert/bootstrap-dto";
+import { types, } from "./shared/bootstrap.dto";
 export namespace Components {
     interface BootstrapAlert {
         "alert": () => Promise<boolean>;
         "close": () => Promise<void>;
         "dismissible": boolean;
         "dispose": () => Promise<void>;
-        "message": string;
+        "message"?: string;
+        "type": types;
+    }
+    interface BootstrapBadge {
+        "content": string;
+        "link"?: string;
+        "pill": boolean;
+        "target": string;
         "type": types;
     }
 }
@@ -23,8 +30,15 @@ declare global {
         prototype: HTMLBootstrapAlertElement;
         new (): HTMLBootstrapAlertElement;
     };
+    interface HTMLBootstrapBadgeElement extends Components.BootstrapBadge, HTMLStencilElement {
+    }
+    var HTMLBootstrapBadgeElement: {
+        prototype: HTMLBootstrapBadgeElement;
+        new (): HTMLBootstrapBadgeElement;
+    };
     interface HTMLElementTagNameMap {
         "bootstrap-alert": HTMLBootstrapAlertElement;
+        "bootstrap-badge": HTMLBootstrapBadgeElement;
     }
 }
 declare namespace LocalJSX {
@@ -35,8 +49,16 @@ declare namespace LocalJSX {
         "onClosing"?: (event: CustomEvent<void>) => void;
         "type"?: types;
     }
+    interface BootstrapBadge {
+        "content"?: string;
+        "link"?: string;
+        "pill"?: boolean;
+        "target"?: string;
+        "type"?: types;
+    }
     interface IntrinsicElements {
         "bootstrap-alert": BootstrapAlert;
+        "bootstrap-badge": BootstrapBadge;
     }
 }
 export { LocalJSX as JSX };
@@ -44,6 +66,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bootstrap-alert": LocalJSX.BootstrapAlert & JSXBase.HTMLAttributes<HTMLBootstrapAlertElement>;
+            "bootstrap-badge": LocalJSX.BootstrapBadge & JSXBase.HTMLAttributes<HTMLBootstrapBadgeElement>;
         }
     }
 }

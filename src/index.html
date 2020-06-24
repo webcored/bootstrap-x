@@ -10,18 +10,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
-<body>
-  <bootstrap-alert type="success" dismissible></bootstrap-alert>
+  <bootstrap-alert type="success" dismissible>
+    Hello world
+  </bootstrap-alert>
 
-  <script>
-    let x = document.querySelector('bootstrap-alert');
-    x.addEventListener('closing', function() {
-      console.log('closing')
-    });
-
-     x.addEventListener('closed', function() {
-      console.log('closed')
-    });
-    </script>
+  Notifications <bootstrap-badge>10</bootstrap-badge>
 </body>
 </html>

@@ -1,6 +1,5 @@
-import { Component, ComponentInterface, h, Prop, Element, Host, Method, Event, EventEmitter } from '@stencil/core';
-import { types } from './bootstrap-dto';
-
+import { Component, ComponentInterface, h, Prop, Element, Host, Event, Method, EventEmitter } from '@stencil/core';
+import { types } from '../../shared/bootstrap.dto';
 @Component({
   tag: 'bootstrap-alert',
   styleUrl: 'bootstrap-alert.css',
@@ -10,11 +9,10 @@ export class BootstrapAlert implements ComponentInterface {
   @Element() private element: HTMLElement;
 
   @Prop() type: types = types.primary;
-  @Prop() message: string = ` A simple ${this.type} alert—check it out!`;
+  @Prop() message?: string;
   @Prop() dismissible: boolean = false;
 
-
-  dismissibleContent() {
+  private dismissibleContent() {
     return (
       <button type="button" class="close" aria-label="Close" onClick={this.close.bind(this)}>
         <span aria-hidden="true">&times;</span>
@@ -24,20 +22,19 @@ export class BootstrapAlert implements ComponentInterface {
 
   render() {
     let alertClass: string =`alert alert-${this.type}`;
-
-    // append dismissible classess
-    alertClass = this.dismissible ? `${alertClass} alert-dismissible show fade` : alertClass;
+    alertClass = this.dismissible ? `${alertClass} alert-dismissible show fade` : alertClass; // append dismissible classess
 
     return (
       <Host class={alertClass} role="alert">
-        {this.message}
-        {this.dismissible ? this.dismissibleContent() : ''}
+        {this.message? this.message : <slot></slot>}
+
+        {/* dismissible */}
+        {this.dismissible ? this.dismissibleContent() : null}
       </Host>
     );
   }
 
   // methods
-
   @Method()
   async alert(): Promise<boolean> {
     return this.dismissible = true;
