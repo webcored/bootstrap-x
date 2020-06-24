@@ -5,57 +5,45 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { types, } from "./components/bootstrap-alert/bootstrap-dto";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface BootstrapAlert {
+        "alert": () => Promise<boolean>;
+        "close": () => Promise<void>;
+        "dismissible": boolean;
+        "dispose": () => Promise<void>;
+        "message": string;
+        "type": types;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLBootstrapAlertElement extends Components.BootstrapAlert, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLBootstrapAlertElement: {
+        prototype: HTMLBootstrapAlertElement;
+        new (): HTMLBootstrapAlertElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "bootstrap-alert": HTMLBootstrapAlertElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface BootstrapAlert {
+        "dismissible"?: boolean;
+        "message"?: string;
+        "onClosed"?: (event: CustomEvent<void>) => void;
+        "onClosing"?: (event: CustomEvent<void>) => void;
+        "type"?: types;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "bootstrap-alert": BootstrapAlert;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "bootstrap-alert": LocalJSX.BootstrapAlert & JSXBase.HTMLAttributes<HTMLBootstrapAlertElement>;
         }
     }
 }
