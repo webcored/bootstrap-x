@@ -33,7 +33,7 @@ resizes to small spinner
 
 ## Methods [[API](#methods)]
 ### dispose
-Destroys a bx-alert component
+Destroys a bx-spinner component
 
 simple js example:
 

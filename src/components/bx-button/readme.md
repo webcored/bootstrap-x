@@ -83,7 +83,7 @@ bootstrapButton.toggle();
 ```
 
 ### dispose
-Destroys a bx-alert component
+Destroys a bx-button component
 
 simple js example:
 

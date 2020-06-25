@@ -59,6 +59,7 @@ Then you can use the element anywhere in your template, JSX, html etc
 * [Alert](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-alert)
 * [Badge](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-badge)
 * [Button](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-button)
+* [Spinner](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-spinner)
 
 * ... rest is [in progress](https://github.com/bootstrap-x/bootstrap-x/projects/1)
 
