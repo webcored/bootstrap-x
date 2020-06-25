@@ -16,55 +16,55 @@ A simple button component
 
 ## Properties [[API](#properties)]
 
-text
+**text**
 ```
 <bx-button text="closed"></bx-button>
 ```
 
-variant
+**variant**
 ```
 <bx-button variant="danger">Closed</bx-button>
 ```
 for list of available variants please check [[API](#properties)].
 
 
-size
+**size**
 ```
 <bx-button size="large">Large button</bx-button>
 ```
 for list of available sizes please check [[API](#properties)].
 
-outline
+**outline**
 ```
 <bx-button outline>Outline</bx-button>
 ```
 outline styled bootstrap button
 
-block
+**block**
 ```
 <bx-button block>Block button</bx-button>
 ```
 block styled bootstrap button
 
-active
+**active**
 ```
 <bx-button active>Block button</bx-button>
 ```
 button active state
 
-disabled
+**disabled**
 ```
 <bx-button disabled>Disabled</bx-button>
 ```
 button disabled state
 
-link
+**link**
 ```
 <bx-button link="/home">Home</bx-button>
 ```
 If link property is passed, button will become a link tag
 
-target
+**target**
 
 &lt;a&gt; tag target property.
 
@@ -105,7 +105,7 @@ bootstrapButton.dispose();
 | `disabled` | `disabled` |             | `boolean`                                                                                                                                                                     | `false`            |
 | `link`     | `link`     |             | `string`                                                                                                                                                                      | `undefined`        |
 | `outline`  | `outline`  |             | `boolean`                                                                                                                                                                     | `false`            |
-| `size`     | `size`     |             | `ButtonSizes.large \| ButtonSizes.small`                                                                                                                                      | `undefined`        |
+| `size`     | `size`     |             | `Sizes.large \| Sizes.small`                                                                                                                                                  | `undefined`        |
 | `target`   | `target`   |             | `string`                                                                                                                                                                      | `undefined`        |
 | `text`     | `text`     |             | `string`                                                                                                                                                                      | `undefined`        |
 | `variant`  | `variant`  |             | `AdditionalVariants \| Variants.danger \| Variants.dark \| Variants.info \| Variants.light \| Variants.primary \| Variants.secondary \| Variants.success \| Variants.warning` | `Variants.primary` |

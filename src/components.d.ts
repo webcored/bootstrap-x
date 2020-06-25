@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AdditionalVariants, ButtonSizes, Variants, } from "./shared/bootstrap.dto";
+import { AdditionalVariants, Sizes, Variants, } from "./shared/bootstrap.dto";
 export namespace Components {
     interface BxAlert {
         "alert": () => Promise<boolean>;
@@ -29,11 +29,17 @@ export namespace Components {
         "dispose": () => Promise<void>;
         "link"?: string;
         "outline": boolean;
-        "size": ButtonSizes;
+        "size": Sizes;
         "target"?: string;
         "text": string;
         "toggle": () => Promise<void>;
         "variant": AdditionalVariants | Variants;
+    }
+    interface BxSpinner {
+        "dispose": () => Promise<void>;
+        "grow": boolean;
+        "small": boolean;
+        "variant": Variants;
     }
 }
 declare global {
@@ -55,10 +61,17 @@ declare global {
         prototype: HTMLBxButtonElement;
         new (): HTMLBxButtonElement;
     };
+    interface HTMLBxSpinnerElement extends Components.BxSpinner, HTMLStencilElement {
+    }
+    var HTMLBxSpinnerElement: {
+        prototype: HTMLBxSpinnerElement;
+        new (): HTMLBxSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "bx-alert": HTMLBxAlertElement;
         "bx-badge": HTMLBxBadgeElement;
         "bx-button": HTMLBxButtonElement;
+        "bx-spinner": HTMLBxSpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -82,15 +95,21 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "link"?: string;
         "outline"?: boolean;
-        "size"?: ButtonSizes;
+        "size"?: Sizes;
         "target"?: string;
         "text"?: string;
         "variant"?: AdditionalVariants | Variants;
+    }
+    interface BxSpinner {
+        "grow"?: boolean;
+        "small"?: boolean;
+        "variant"?: Variants;
     }
     interface IntrinsicElements {
         "bx-alert": BxAlert;
         "bx-badge": BxBadge;
         "bx-button": BxButton;
+        "bx-spinner": BxSpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -100,6 +119,7 @@ declare module "@stencil/core" {
             "bx-alert": LocalJSX.BxAlert & JSXBase.HTMLAttributes<HTMLBxAlertElement>;
             "bx-badge": LocalJSX.BxBadge & JSXBase.HTMLAttributes<HTMLBxBadgeElement>;
             "bx-button": LocalJSX.BxButton & JSXBase.HTMLAttributes<HTMLBxButtonElement>;
+            "bx-spinner": LocalJSX.BxSpinner & JSXBase.HTMLAttributes<HTMLBxSpinnerElement>;
         }
     }
 }

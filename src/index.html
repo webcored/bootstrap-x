@@ -14,6 +14,16 @@
 </head>
 
 <body>
+  <!-- <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">Bootstrap X - Bootstrap web components library built with Stenciljs</a>
+  </nav> -->
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-4">qwdqwd</div>
+      <div class="col-8">qwdqw</div>
+    </div>
+  </div> -->
   <bx-alert text="Alert without dismissible"></bx-alert>
   <bx-alert variant="warning" dismissible>
     Alert with dismissible
@@ -26,6 +36,14 @@
 
   <bx-button text="Login" variant="success" size="small"></bx-button>
   <bx-button link="https://stenciljs.com/" variant="primary" size="large" active>Stencil</bx-button>
+
+  <!-- spinner -->
+  <bx-spinner variant="success"></bx-spinner>
+  <bx-spinner variant="danger" grow></bx-spinner>
+  <bx-button variant="dark" >
+    <bx-spinner variant="light" small ></bx-spinner>
+    loading
+  </bx-button>
 </body>
 
 </html>

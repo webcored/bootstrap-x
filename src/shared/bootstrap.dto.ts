@@ -13,9 +13,9 @@ enum AdditionalVariants {
   link = 'link',
 };
 
-enum ButtonSizes {
+enum Sizes {
   large = 'lg',
   small = 'sm'
 };
 
-export { Variants, AdditionalVariants, ButtonSizes };
+export { Variants, AdditionalVariants, Sizes };

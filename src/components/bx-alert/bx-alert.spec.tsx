@@ -9,9 +9,6 @@ describe('bx-alert', () => {
     });
     expect(page.root).toEqualHtml(`
       <bx-alert>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
       </bx-alert>
     `);
   });

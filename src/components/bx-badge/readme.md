@@ -16,26 +16,25 @@ A simple badge component
 
 ## Properties [[API](#properties)]
 
-variant
+**variant**
 ```
 <bx-badge variant="danger">Closed</bx-badge>
 ```
 for list of available variants please check [[API](#properties)].
 
 
-pill
-
-> More rounded pill badges
+**pill**
 
 ```
 <bx-badge pill>Circled</bx-badge>
 ```
+More rounded pill badges
 
-link
+**link**
 
 If link property is passed, badge will become a link tag
 
-target
+**target**
 
 &lt;a&gt; tag target property.
 

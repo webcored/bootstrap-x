@@ -16,11 +16,13 @@ A simple alert component
 
 ## Properties [[API](#properties)]
 
-Dismissible alert
+**dismissible**
 ```
 <bx-alert dismissible />
 ```
-variant
+makes an alert dismissible
+
+**variant**
 ```
 <bx-alert variant="info" messgage="Hello web world" />
 ```

@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-x",
-  "version": "0.0.3-beta",
+  "version": "0.0.4-beta",
   "description": "A Bootstrap web components library, Powered with Stenciljs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -22,14 +22,16 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.2"
+    "@stencil/core": "^1.12.2",
+    "@types/puppeteer": "2.0.1",
+    "@types/jest": "^26.0.2",
+    "jest": "24.9.0",
+    "jest-cli": "24.9.0",
+    "puppeteer": "2.1.1"
   },
   "license": "MIT",
-  "dependencies": {
-    "@types/jest": "^26.0.2"
-  },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/bootstrap-x/bootstrap-x.git"
+    "type": "git",
+    "url": "https://github.com/bootstrap-x/bootstrap-x.git"
   }
 }

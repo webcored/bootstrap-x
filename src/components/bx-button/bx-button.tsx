@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Host, h, Prop, Method, Element } from '@stencil/core';
-import { Variants, AdditionalVariants, ButtonSizes } from '../../shared/bootstrap.dto';
+import { Variants, AdditionalVariants, Sizes } from '../../shared/bootstrap.dto';
 
 @Component({
   tag: 'bx-button',
@@ -12,7 +12,7 @@ export class BxButton implements ComponentInterface {
   @Prop() text: string;
 
   @Prop() variant: AdditionalVariants | Variants = Variants.primary;
-  @Prop() size: ButtonSizes;
+  @Prop() size: Sizes;
   @Prop() outline: boolean = false;
   @Prop() block: boolean = false;
 
@@ -25,7 +25,7 @@ export class BxButton implements ComponentInterface {
 
   render() {
     let buttonClass: string = `btn btn-${this.outline? 'outline-': ''}${this.variant}`;
-    buttonClass = this.size ? `${buttonClass} btn-${ButtonSizes[this.size]}` : buttonClass;
+    buttonClass = this.size ? `${buttonClass} btn-${Sizes[this.size]}` : buttonClass;
     buttonClass = this.block ? `${buttonClass} btn-block` : buttonClass;
     buttonClass = this.active ? `${buttonClass} active` : buttonClass;
     buttonClass = this.disabled ? `${buttonClass} disabled` : buttonClass;
