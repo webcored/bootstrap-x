@@ -5,7 +5,7 @@ Bootstrap badge component
 
 A simple badge component
 ```
-<bx-badge content="Open" />
+<bx-badge text="Open"></bx-badge>
 
 -- or --
 
@@ -16,11 +16,11 @@ A simple badge component
 
 ## Properties [[API](#properties)]
 
-Type variants
+variant
 ```
-<bx-badge type="danger">Closed</bx-badge>
+<bx-badge variant="danger">Closed</bx-badge>
 ```
-for list of available types please check [[API](#properties)].
+for list of available variants please check [[API](#properties)].
 
 
 pill
@@ -71,13 +71,13 @@ bootstrapBadge.target = "_top";
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                                                                                                            | Default         |
-| --------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `content` | `content` |             | `string`                                                                                                                        | `undefined`     |
-| `link`    | `link`    |             | `string`                                                                                                                        | `undefined`     |
-| `pill`    | `pill`    |             | `boolean`                                                                                                                       | `false`         |
-| `target`  | `target`  |             | `string`                                                                                                                        | `'_self'`       |
-| `type`    | `type`    |             | `types.danger \| types.dark \| types.info \| types.light \| types.primary \| types.secondary \| types.success \| types.warning` | `types.primary` |
+| Property  | Attribute | Description | Type                                                                                                                                                    | Default            |
+| --------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `link`    | `link`    |             | `string`                                                                                                                                                | `undefined`        |
+| `pill`    | `pill`    |             | `boolean`                                                                                                                                               | `false`            |
+| `target`  | `target`  |             | `string`                                                                                                                                                | `undefined`        |
+| `text`    | `text`    |             | `string`                                                                                                                                                | `undefined`        |
+| `variant` | `variant` |             | `Variants.danger \| Variants.dark \| Variants.info \| Variants.light \| Variants.primary \| Variants.secondary \| Variants.success \| Variants.warning` | `Variants.primary` |
 
 
 ----------------------------------------------

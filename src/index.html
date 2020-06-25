@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -7,13 +8,24 @@
 
   <script type="module" src="/build/bootstrap-x.esm.js"></script>
   <script nomodule src="/build/bootstrap-x.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
-  <bx-alert type="success" dismissible>
-    Hello world
+
+<body>
+  <bx-alert text="Alert without dismissible"></bx-alert>
+  <bx-alert variant="warning" dismissible>
+    Alert with dismissible
   </bx-alert>
 
-  Notifications <bx-badge>10</bx-badge>
+  <bx-badge text="warning" variant="danger"></bx-badge>
+  <bx-button>
+    Notifications <bx-badge variant="light">10</bx-badge>
+  </bx-button>
+
+  <bx-button text="Login" variant="success" size="small"></bx-button>
+  <bx-button link="https://stenciljs.com/" variant="primary" size="large" active>Stencil</bx-button>
 </body>
+
 </html>

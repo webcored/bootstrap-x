@@ -1,5 +1,5 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
-import { types } from '../../shared/bootstrap.dto';
+import { Component, ComponentInterface, h, Prop, Host } from '@stencil/core';
+import { Variants } from '../../shared/bootstrap.dto';
 
 @Component({
   tag: 'bx-badge',
@@ -7,23 +7,25 @@ import { types } from '../../shared/bootstrap.dto';
   shadow: false,
 })
 export class BxBadge implements ComponentInterface {
-  @Prop() type: types = types.primary;
-  @Prop() content: string;
+  @Prop() variant: Variants = Variants.primary;
+  @Prop() text?: string;
   @Prop() pill: boolean = false;
+
   @Prop() link?: string;
-  @Prop() target: string = '_self';
+  @Prop() target?: string;
 
   render() {
-    let badgeClass = `badge ${this.pill ? 'badge-pill' : ''} badge-${this.type}`;
-    let content= this.content ? this.content : <slot></slot>;
+    let badgeClass = `badge ${this.pill ? 'badge-pill' : ''} badge-${this.variant}`;
+    let content= this.text ? this.text : <slot></slot>;
+
     return (
       this.link
       ? <a href={this.link} class={badgeClass} target={this.target}>
           {content}
         </a>
-      : <span class={badgeClass}>
+      : <Host class={badgeClass}>
           {content}
-        </span>
+        </Host>
     );
   }
 }

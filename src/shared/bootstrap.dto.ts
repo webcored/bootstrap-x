@@ -1,4 +1,4 @@
-enum types {
+enum Variants {
   primary = 'primary',
   secondary = 'secondary',
   success = 'success',
@@ -9,4 +9,13 @@ enum types {
   dark = 'dark'
 };
 
-export { types };
+enum AdditionalVariants {
+  link = 'link',
+};
+
+enum ButtonSizes {
+  large = 'lg',
+  small = 'sm'
+};
+
+export { Variants, AdditionalVariants, ButtonSizes };

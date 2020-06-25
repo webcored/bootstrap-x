@@ -1,15 +1,16 @@
 import { Component, ComponentInterface, h, Prop, Element, Host, Event, Method, EventEmitter } from '@stencil/core';
-import { types } from '../../shared/bootstrap.dto';
+import { Variants } from '../../shared/bootstrap.dto';
+
 @Component({
   tag: 'bx-alert',
   styleUrl: 'bx-alert.css',
-  shadow: false,
+  shadow: false
 })
 export class BxAlert implements ComponentInterface {
   @Element() private element: HTMLElement;
 
-  @Prop() type: types = types.primary;
-  @Prop() message?: string;
+  @Prop() variant: Variants = Variants.primary;
+  @Prop() text?: string;
   @Prop() dismissible: boolean = false;
 
   private dismissibleContent() {
@@ -21,12 +22,12 @@ export class BxAlert implements ComponentInterface {
   }
 
   render() {
-    let alertClass: string =`alert alert-${this.type}`;
+    let alertClass: string =`alert alert-${this.variant}`;
     alertClass = this.dismissible ? `${alertClass} alert-dismissible show fade` : alertClass; // append dismissible classess
 
     return (
       <Host class={alertClass} role="alert">
-        {this.message? this.message : <slot></slot>}
+        {this.text? this.text : <slot></slot>}
 
         {/* dismissible */}
         {this.dismissible ? this.dismissibleContent() : null}
@@ -45,7 +46,7 @@ export class BxAlert implements ComponentInterface {
     this.closing.emit();
     this.element.classList.remove('show');
 
-   window.setTimeout(() => {
+    window.setTimeout(() => {
       this.closed.emit();
       this.element.remove();
     }, 200);

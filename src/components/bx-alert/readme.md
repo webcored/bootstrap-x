@@ -5,7 +5,7 @@ Bootstrap alert component
 
 A simple alert component
 ```
-<bx-alert message="In ❤️ with stenciljs" />
+<bx-alert text="In ❤️ with stenciljs"></bx-alert>
 
 -- or --
 
@@ -20,12 +20,12 @@ Dismissible alert
 ```
 <bx-alert dismissible />
 ```
-Type variants
+variant
 ```
-<bx-alert type="info" messgage="Hello web world" />
+<bx-alert variant="info" messgage="Hello web world" />
 ```
 
-for list of available types please check [[API](#properties)].
+for list of available variants please check [[API](#properties)].
 
 <hr>
 
@@ -89,11 +89,11 @@ bootstrapAlert.addEventListener('closed', () => performSomething());
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                                                                                                                            | Default         |
-| ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `dismissible` | `dismissible` |             | `boolean`                                                                                                                       | `false`         |
-| `message`     | `message`     |             | `string`                                                                                                                        | `undefined`     |
-| `type`        | `type`        |             | `types.danger \| types.dark \| types.info \| types.light \| types.primary \| types.secondary \| types.success \| types.warning` | `types.primary` |
+| Property      | Attribute     | Description | Type                                                                                                                                                    | Default            |
+| ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `dismissible` | `dismissible` |             | `boolean`                                                                                                                                               | `false`            |
+| `text`        | `text`        |             | `string`                                                                                                                                                | `undefined`        |
+| `variant`     | `variant`     |             | `Variants.danger \| Variants.dark \| Variants.info \| Variants.light \| Variants.primary \| Variants.secondary \| Variants.success \| Variants.warning` | `Variants.primary` |
 
 
 ## Events

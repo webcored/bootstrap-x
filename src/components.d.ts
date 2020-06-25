@@ -5,22 +5,35 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { types, } from "./shared/bootstrap.dto";
+import { AdditionalVariants, ButtonSizes, Variants, } from "./shared/bootstrap.dto";
 export namespace Components {
     interface BxAlert {
         "alert": () => Promise<boolean>;
         "close": () => Promise<void>;
         "dismissible": boolean;
         "dispose": () => Promise<void>;
-        "message"?: string;
-        "type": types;
+        "text"?: string;
+        "variant": Variants;
     }
     interface BxBadge {
-        "content": string;
         "link"?: string;
         "pill": boolean;
-        "target": string;
-        "type": types;
+        "target"?: string;
+        "text"?: string;
+        "variant": Variants;
+    }
+    interface BxButton {
+        "active": boolean;
+        "block": boolean;
+        "disabled": boolean;
+        "dispose": () => Promise<void>;
+        "link"?: string;
+        "outline": boolean;
+        "size": ButtonSizes;
+        "target"?: string;
+        "text": string;
+        "toggle": () => Promise<void>;
+        "variant": AdditionalVariants | Variants;
     }
 }
 declare global {
@@ -36,29 +49,48 @@ declare global {
         prototype: HTMLBxBadgeElement;
         new (): HTMLBxBadgeElement;
     };
+    interface HTMLBxButtonElement extends Components.BxButton, HTMLStencilElement {
+    }
+    var HTMLBxButtonElement: {
+        prototype: HTMLBxButtonElement;
+        new (): HTMLBxButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "bx-alert": HTMLBxAlertElement;
         "bx-badge": HTMLBxBadgeElement;
+        "bx-button": HTMLBxButtonElement;
     }
 }
 declare namespace LocalJSX {
     interface BxAlert {
         "dismissible"?: boolean;
-        "message"?: string;
         "onClosed"?: (event: CustomEvent<void>) => void;
         "onClosing"?: (event: CustomEvent<void>) => void;
-        "type"?: types;
+        "text"?: string;
+        "variant"?: Variants;
     }
     interface BxBadge {
-        "content"?: string;
         "link"?: string;
         "pill"?: boolean;
         "target"?: string;
-        "type"?: types;
+        "text"?: string;
+        "variant"?: Variants;
+    }
+    interface BxButton {
+        "active"?: boolean;
+        "block"?: boolean;
+        "disabled"?: boolean;
+        "link"?: string;
+        "outline"?: boolean;
+        "size"?: ButtonSizes;
+        "target"?: string;
+        "text"?: string;
+        "variant"?: AdditionalVariants | Variants;
     }
     interface IntrinsicElements {
         "bx-alert": BxAlert;
         "bx-badge": BxBadge;
+        "bx-button": BxButton;
     }
 }
 export { LocalJSX as JSX };
@@ -67,6 +99,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "bx-alert": LocalJSX.BxAlert & JSXBase.HTMLAttributes<HTMLBxAlertElement>;
             "bx-badge": LocalJSX.BxBadge & JSXBase.HTMLAttributes<HTMLBxBadgeElement>;
+            "bx-button": LocalJSX.BxButton & JSXBase.HTMLAttributes<HTMLBxButtonElement>;
         }
     }
 }
