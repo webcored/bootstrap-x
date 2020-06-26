@@ -11,6 +11,8 @@ Framework agnostic bootstrap web components powered with stenciljs
 
 Knock of jQuery dependency in your boostrap project & leverage the functionalties of webcomponents
 
+> npm: https://www.npmjs.com/package/bootstrap-x
+
 ## Pros
   * Simple to use & knock of other library requirements for bootstrap
   * Framework agnostic
