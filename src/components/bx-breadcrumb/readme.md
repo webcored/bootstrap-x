@@ -30,7 +30,7 @@ Array of breadcrumb objects in JSON stringified format
 </bx-breadcrumb>
 ```
 
-breadcrumbs object format: [[DTO](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-breadcrumbs/bx-breadcrumb.dto.ts)]
+breadcrumbs object format: [[DTO](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-breadcrumb/bx-breadcrumb.dto.ts)]
 
 `{ text: string; link?: string; active?: boolean; }`
 
@@ -65,7 +65,7 @@ breadcrumb.add({ text: 'stencil', active: true});
 ```
 
 ### active
-Converts a breadcrumb item into an active state.
+Converts a breadcrumb item to an active state.
 
 simple js example:
 
