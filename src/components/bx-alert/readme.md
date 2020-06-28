@@ -39,8 +39,8 @@ Makes a bx-alert component into a dismissible one
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bx-alert');
-bootstrapAlert.alert();
+let alert = document.querySelector('bx-alert');
+alert.alert();
 ```
 
 ### close
@@ -49,8 +49,8 @@ Closes & destroys a bx-alert component
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bx-alert');
-bootstrapAlert.close();
+let alert = document.querySelector('bx-alert');
+alert.close();
 ```
 
 ### dispose
@@ -59,8 +59,8 @@ Destroys a bx-alert component
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bx-alert');
-bootstrapAlert.dispose();
+let alert = document.querySelector('bx-alert');
+alert.dispose();
 ```
 
 <hr>
@@ -80,8 +80,8 @@ Event will be triggered when the bx-alert has been closed
 
 simple js example:
 ```
-let bootstrapAlert = document.querySelector('bx-alert');
-bootstrapAlert.addEventListener('closed', () => performSomething());
+let alert = document.querySelector('bx-alert');
+alert.addEventListener('closed', () => performSomething());
 ```
 
 

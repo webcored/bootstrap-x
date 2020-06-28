@@ -48,8 +48,8 @@ Convert a simple bx-badge component to pill
 simple js example:
 
 ```
-let bootstrapBadge = document.querySelector('bx-badge');
-bootstrapBadge.pill = true;
+let badge = document.querySelector('bx-badge');
+badge.pill = true;
 ```
 
 ### link
@@ -58,9 +58,9 @@ Adding link and target
 simple js example:
 
 ```
-let bootstrapBadge = document.querySelector('bx-badge');
-bootstrapBadge.link = "https://stenciljs.com/";
-bootstrapBadge.target = "_top";
+let badge = document.querySelector('bx-badge');
+badge.link = "https://stenciljs.com/";
+badge.target = "_top";
 ```
 
 

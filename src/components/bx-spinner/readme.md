@@ -38,8 +38,8 @@ Destroys a bx-spinner component
 simple js example:
 
 ```
-let bootstrapAlert = document.querySelector('bx-alert');
-bootstrapAlert.dispose();
+let spinner = document.querySelector('bx-spinner');
+spinner.dispose();
 ```
 
 

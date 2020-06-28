@@ -78,8 +78,8 @@ Turns bx-button into activated state.
 simple js example:
 
 ```
-let bootstrapButton = document.querySelector('bx-button');
-bootstrapButton.toggle();
+let button = document.querySelector('bx-button');
+button.toggle();
 ```
 
 ### dispose
@@ -88,8 +88,8 @@ Destroys a bx-button component
 simple js example:
 
 ```
-let bootstrapButton = document.querySelector('bx-button');
-bootstrapButton.dispose();
+let button = document.querySelector('bx-button');
+button.dispose();
 ```
 
 

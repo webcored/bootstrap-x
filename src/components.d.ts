@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AdditionalVariants, Sizes, Variants, } from "./shared/bootstrap.dto";
+import { Breadcrumb, } from "./components/bx-breadcrumb/bx-breadcrumb.dto";
 export namespace Components {
     interface BxAlert {
         "alert": () => Promise<boolean>;
@@ -21,6 +22,14 @@ export namespace Components {
         "target"?: string;
         "text"?: string;
         "variant": Variants;
+    }
+    interface BxBreadcrumb {
+        "active": (text: String) => Promise<void>;
+        "add": (breadcrumb: Breadcrumb) => Promise<void>;
+        "breadcrumbs"?: Breadcrumb[] | string;
+        "delete": (text: String) => Promise<void>;
+        "dispose": () => Promise<void>;
+        "separator": string;
     }
     interface BxButton {
         "active": boolean;
@@ -55,6 +64,12 @@ declare global {
         prototype: HTMLBxBadgeElement;
         new (): HTMLBxBadgeElement;
     };
+    interface HTMLBxBreadcrumbElement extends Components.BxBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLBxBreadcrumbElement: {
+        prototype: HTMLBxBreadcrumbElement;
+        new (): HTMLBxBreadcrumbElement;
+    };
     interface HTMLBxButtonElement extends Components.BxButton, HTMLStencilElement {
     }
     var HTMLBxButtonElement: {
@@ -70,6 +85,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "bx-alert": HTMLBxAlertElement;
         "bx-badge": HTMLBxBadgeElement;
+        "bx-breadcrumb": HTMLBxBreadcrumbElement;
         "bx-button": HTMLBxButtonElement;
         "bx-spinner": HTMLBxSpinnerElement;
     }
@@ -88,6 +104,14 @@ declare namespace LocalJSX {
         "target"?: string;
         "text"?: string;
         "variant"?: Variants;
+    }
+    interface BxBreadcrumb {
+        "breadcrumbs"?: Breadcrumb[] | string;
+        /**
+          * A click event for breadcrumb items
+         */
+        "onClicked"?: (event: CustomEvent<Breadcrumb>) => void;
+        "separator"?: string;
     }
     interface BxButton {
         "active"?: boolean;
@@ -108,6 +132,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "bx-alert": BxAlert;
         "bx-badge": BxBadge;
+        "bx-breadcrumb": BxBreadcrumb;
         "bx-button": BxButton;
         "bx-spinner": BxSpinner;
     }
@@ -118,6 +143,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "bx-alert": LocalJSX.BxAlert & JSXBase.HTMLAttributes<HTMLBxAlertElement>;
             "bx-badge": LocalJSX.BxBadge & JSXBase.HTMLAttributes<HTMLBxBadgeElement>;
+            "bx-breadcrumb": LocalJSX.BxBreadcrumb & JSXBase.HTMLAttributes<HTMLBxBreadcrumbElement>;
             "bx-button": LocalJSX.BxButton & JSXBase.HTMLAttributes<HTMLBxButtonElement>;
             "bx-spinner": LocalJSX.BxSpinner & JSXBase.HTMLAttributes<HTMLBxSpinnerElement>;
         }
