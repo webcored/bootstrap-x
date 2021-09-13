@@ -5,11 +5,10 @@
 
 
 
-# Bootstrap X
+# B𝕏
+Bootstrap X - Framework agnostic bootstrap web components powered with stenciljs
 
-Framework agnostic bootstrap web components powered with stenciljs
-
-Knock of jQuery dependency in your boostrap project & leverage the functionalties of webcomponents
+Write less Javascript & leverage the functionalties of webcomponents
 
 > npm: https://www.npmjs.com/package/bootstrap-x
 
