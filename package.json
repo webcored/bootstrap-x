@@ -1,7 +1,11 @@
 {
-  "name": "bootstrap-x",
-  "version": "0.0.5-beta",
+  "name": "@webcored/bootstrap-x",
+  "version": "0.0.6-beta",
   "description": "A Bootstrap web components library, Powered with Stenciljs",
+  "keywords": [
+    "bootstrap-stencil",
+    "bootstrapx"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -32,6 +36,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bootstrap-x/bootstrap-x.git"
+    "url": "https://github.com/webcored/bootstrap-x.git"
   }
 }
