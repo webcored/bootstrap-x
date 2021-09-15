@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const baseReadDir = path.resolve('./output');
-const baseWriteDir = path.resolve('./docs/src/guide');
+const baseWriteDir = path.resolve('./docs/src');
 
 
 const writeFile = (fileReadPath, dirName) => {

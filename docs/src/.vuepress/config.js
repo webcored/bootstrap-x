@@ -59,6 +59,7 @@ module.exports = {
       },
       {
         title: 'Components',
+        collapsable: false,
         children: [
           { title: 'B𝕏 Alert', path: '/components/bx-alert' },
           { title: 'B𝕏 Badge', path: '/components/bx-badge' },
@@ -69,6 +70,7 @@ module.exports = {
       },
       {
         title: 'Layouts',
+        collapsable: false,
         children: [
           { title: 'B𝕏 Container', path: '/layouts/bx-container' },
         ]

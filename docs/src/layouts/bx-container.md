@@ -2,10 +2,12 @@
 Bootstrap container component
 
 # usage
-A simple spinner component
+A simple container layout component
 
 ```
-<bx-spinner></bx-spinner>
+<bx-container>
+  <p>content</p>
+</bx-container>
 ```
 <!-- Auto Generated Below -->
 
