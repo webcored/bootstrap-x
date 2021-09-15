@@ -27,10 +27,11 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
+    repo: 'https://github.com/webcored/bootstrap-x',
     editLinks: false,
-    docsDir: '',
+    docsDir: 'docs',
     editLinkText: '',
+    base: '/bootstrap-x',
     lastUpdated: false,
     nav: [
       {
@@ -44,10 +45,6 @@ module.exports = {
       {
         text: 'Roadmap',
         link: 'https://github.com/webcored/bootstrap-x/projects/1'
-      },
-      {
-        text: 'Github',
-        link: 'https://github.com/webcored/bootstrap-x'
       }
     ],
     sidebar: [
