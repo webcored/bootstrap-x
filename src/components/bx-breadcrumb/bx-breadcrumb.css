@@ -1,3 +1,0 @@
-bx-breadcrumb .breadcrumb-item--custom+.breadcrumb-item--custom::before {
-  content: attr(data-separator);
-}
