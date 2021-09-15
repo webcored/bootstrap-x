@@ -5,12 +5,14 @@
 
 
 
-# B𝕏
+# B𝕏 | BootstrapX
 Bootstrap X - Framework agnostic bootstrap web components powered with stenciljs
+
+https://webcored.github.io/bootstrap-x/
 
 Write less Javascript & leverage the functionalties of webcomponents
 
-> npm: https://www.npmjs.com/package/bootstrap-x
+> npm: https://www.npmjs.com/package/@webcored/bootstrap-x
 
 ## Pros
   * Simple to use & knock of other library requirements for bootstrap
@@ -57,12 +59,11 @@ Then you can use the element anywhere in your template, JSX, html etc
 <hr>
 
 ### Available components
-
-* [Alert](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-alert)
-* [Badge](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-badge)
-* [Button](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-button)
-* [Breadcrumb](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-breadcrumb)
-* [Spinner](https://github.com/bootstrap-x/bootstrap-x/tree/master/src/components/bx-spinner)
+* [Alert](https://github.com/webcored/bootstrap-x/tree/master/src/components/bx-alert)
+* [Badge](https://github.com/webcored/bootstrap-x/tree/master/src/components/bx-badge)
+* [Button](https://github.com/webcored/bootstrap-x/tree/master/src/components/bx-button)
+* [Breadcrumb](https://github.com/webcored/bootstrap-x/tree/master/src/components/bx-breadcrumb)
+* [Spinner](https://github.com/webcored/bootstrap-x/tree/master/src/components/bx-spinner)
 
 * ... rest is [in progress](https://github.com/bootstrap-x/bootstrap-x/projects/1)
 
