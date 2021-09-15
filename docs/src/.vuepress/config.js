@@ -21,6 +21,8 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
 
+  base: "/bootstrap-x/",
+
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -31,7 +33,6 @@ module.exports = {
     editLinks: false,
     docsDir: 'docs',
     editLinkText: '',
-    base: '/bootstrap-x',
     lastUpdated: false,
     nav: [
       {
