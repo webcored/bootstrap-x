@@ -10,6 +10,7 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
+      dir: 'output'
     },
     {
       type: 'www',

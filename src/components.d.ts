@@ -44,6 +44,8 @@ export namespace Components {
         "toggle": () => Promise<void>;
         "variant": AdditionalVariants | Variants;
     }
+    interface BxContainer {
+    }
     interface BxSpinner {
         "dispose": () => Promise<void>;
         "grow": boolean;
@@ -76,6 +78,12 @@ declare global {
         prototype: HTMLBxButtonElement;
         new (): HTMLBxButtonElement;
     };
+    interface HTMLBxContainerElement extends Components.BxContainer, HTMLStencilElement {
+    }
+    var HTMLBxContainerElement: {
+        prototype: HTMLBxContainerElement;
+        new (): HTMLBxContainerElement;
+    };
     interface HTMLBxSpinnerElement extends Components.BxSpinner, HTMLStencilElement {
     }
     var HTMLBxSpinnerElement: {
@@ -87,6 +95,7 @@ declare global {
         "bx-badge": HTMLBxBadgeElement;
         "bx-breadcrumb": HTMLBxBreadcrumbElement;
         "bx-button": HTMLBxButtonElement;
+        "bx-container": HTMLBxContainerElement;
         "bx-spinner": HTMLBxSpinnerElement;
     }
 }
@@ -124,6 +133,8 @@ declare namespace LocalJSX {
         "text"?: string;
         "variant"?: AdditionalVariants | Variants;
     }
+    interface BxContainer {
+    }
     interface BxSpinner {
         "grow"?: boolean;
         "small"?: boolean;
@@ -134,6 +145,7 @@ declare namespace LocalJSX {
         "bx-badge": BxBadge;
         "bx-breadcrumb": BxBreadcrumb;
         "bx-button": BxButton;
+        "bx-container": BxContainer;
         "bx-spinner": BxSpinner;
     }
 }
@@ -145,6 +157,7 @@ declare module "@stencil/core" {
             "bx-badge": LocalJSX.BxBadge & JSXBase.HTMLAttributes<HTMLBxBadgeElement>;
             "bx-breadcrumb": LocalJSX.BxBreadcrumb & JSXBase.HTMLAttributes<HTMLBxBreadcrumbElement>;
             "bx-button": LocalJSX.BxButton & JSXBase.HTMLAttributes<HTMLBxButtonElement>;
+            "bx-container": LocalJSX.BxContainer & JSXBase.HTMLAttributes<HTMLBxContainerElement>;
             "bx-spinner": LocalJSX.BxSpinner & JSXBase.HTMLAttributes<HTMLBxSpinnerElement>;
         }
     }
