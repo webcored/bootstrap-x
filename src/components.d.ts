@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AdditionalVariants, Sizes, Variants } from "./shared/bootstrap.dto";
 import { Breadcrumb } from "./components/bx-breadcrumb/bx-breadcrumb.dto";
-import { DropType } from "./components/bx-dropdown/bx-dropdown.dto";
+import { Divider, DropdownItem, DropType } from "./components/bx-dropdown/bx-dropdown.dto";
 export namespace Components {
     interface BxAlert {
         "alert": () => Promise<boolean>;
@@ -48,13 +48,15 @@ export namespace Components {
     interface BxContainer {
     }
     interface BxDropdown {
-        "actionText": string;
+        "buttonText": string;
         "direction": DropType;
         "dispose": () => Promise<void>;
-        "dropdown": () => Promise<void>;
         "isLink": boolean;
+        "items"?: (DropdownItem | Divider)[] | string;
         "size": Sizes;
         "split": boolean;
+        "textVariant": Variants;
+        "toggle": () => Promise<void>;
         "variant": Variants;
     }
     interface BxSpinner {
@@ -154,11 +156,17 @@ declare namespace LocalJSX {
     interface BxContainer {
     }
     interface BxDropdown {
-        "actionText"?: string;
+        "buttonText"?: string;
         "direction"?: DropType;
         "isLink"?: boolean;
+        "items"?: (DropdownItem | Divider)[] | string;
+        "onClosed"?: (event: CustomEvent<void>) => void;
+        "onClosing"?: (event: CustomEvent<void>) => void;
+        "onOpened"?: (event: CustomEvent<void>) => void;
+        "onOpening"?: (event: CustomEvent<void>) => void;
         "size"?: Sizes;
         "split"?: boolean;
+        "textVariant"?: Variants;
         "variant"?: Variants;
     }
     interface BxSpinner {

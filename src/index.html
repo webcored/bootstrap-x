@@ -55,7 +55,36 @@
     </bx-breadcrumb>
 
     <!-- dropdown -->
-    <bx-dropdown direction="right" is-link> </bx-dropdown>
-    <bx-dropdown split></bx-dropdown>
+    <bx-dropdown button-text="default" />
+      <a class="dropdown-item" href="#">
+        Action
+      </a>
+      <a class="dropdown-item" href="#">
+        Another action
+      </a>
+      <a class="dropdown-item" href="#">
+        Something else here
+      </a>
+    </bx-dropdown>
+    <bx-dropdown button-text="Link button" is-link /></bx-dropdown>
+    <bx-dropdown button-text="Red button" variant="danger" /></bx-dropdown>
+    <bx-dropdown button-text="split button" split></bx-dropdown>
+    <bx-dropdown button-text="lg button" size="lg" split></bx-dropdown>
+
+    <bx-dropdown
+      button-text="prop items"
+      items='[{ "text": "home" , "link" : "/home" },"divider", {"text": "test"}]'
+    ></bx-dropdown>
+    <bx-dropdown button-text="using slot" />
+     <a class="dropdown-item" href="#">
+        Action
+      </a>
+      <a class="dropdown-item" href="#">
+        Another action
+      </a>
+      <a class="dropdown-item" href="#">
+        Something else here
+      </a>
+    </bx-dropdown>
   </body>
 </html>

@@ -1,4 +1,3 @@
-import { Breadcrumb } from "../bx-breadcrumb/bx-breadcrumb.dto";
 enum DropDirection {
   up = "dropup",
   right = "dropright",
@@ -6,10 +5,16 @@ enum DropDirection {
   down = "",
 }
 
-interface DropdownItem extends Breadcrumb {
+interface DropdownItem {
+  text: string;
+  link?: string;
   disabled?: boolean;
+  active?: boolean;
+  isHeader?: boolean;
 }
+
+type Divider = "divider";
 
 type DropType = "down" | "up" | "left" | "right";
 
-export { DropDirection, DropType, DropdownItem };
+export { DropDirection, DropType, DropdownItem, Divider };

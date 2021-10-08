@@ -7,10 +7,17 @@ import {
   State,
   Method,
   Element,
+  Event,
+  EventEmitter,
   Listen,
 } from "@stencil/core";
 import { Sizes, Variants } from "../../shared/bootstrap.dto";
-import { DropDirection, DropType } from "./bx-dropdown.dto";
+import {
+  DropDirection,
+  DropdownItem,
+  DropType,
+  Divider,
+} from "./bx-dropdown.dto";
 
 @Component({
   tag: "bx-dropdown",
@@ -23,11 +30,13 @@ export class BxDropdown implements ComponentInterface {
   @State() open: boolean = false;
   // props
   @Prop() variant: Variants = Variants.secondary;
+  @Prop() textVariant: Variants = Variants.light;
   @Prop() size: Sizes;
   @Prop() split: boolean = false;
   @Prop() isLink: boolean = false;
-  @Prop() actionText: string = "Dropdown button";
+  @Prop() buttonText: string = "Dropdown button";
   @Prop() direction: DropType = "down";
+  @Prop() items?: (DropdownItem | Divider)[] | string;
   // close dropdown when other part of the dom is clicked
   @Listen("click", { target: "document" })
   closeOnClickOutSide(e) {
@@ -36,15 +45,34 @@ export class BxDropdown implements ComponentInterface {
     }
   }
 
+  componentWillLoad() {
+    this.items = this.dropDownItems;
+  }
+
+  //parse items pops
+  private get dropDownItems(): DropdownItem[] {
+    return typeof this.items === "string"
+      ? JSON.parse(this.items as string)
+      : this.items;
+  }
+
+  private get computedItems(): (DropdownItem | "divider")[] {
+    if (typeof this.items === "object" && this.items.length) {
+      return this.items;
+    }
+    return [];
+  }
   // renders button based on props
   private renderActionButton() {
     if (this.split) {
       let buttons = [
         <button
           type="button"
-          class={`btn btn-${this.variant} btn-${this.size ?? "md"}`}
+          class={`btn btn-${this.variant} btn-${this.size ?? "md"} text-${
+            this.textVariant
+          }`}
         >
-          {this.actionText}
+          {this.buttonText}
         </button>,
         <button
           type="button"
@@ -52,20 +80,23 @@ export class BxDropdown implements ComponentInterface {
             btn btn-${this.variant} 
             btn-${this.size ?? "md"}
             dropdown-toggle dropdown-toggle-split
+            text-${this.textVariant}
           `}
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           onClick={this.toogleClass.bind(this)}
         >
-          <span class="sr-only">{this.actionText} Toggle Dropdown</span>
+          <span class="sr-only">{this.buttonText} Toggle Dropdown</span>
         </button>,
       ];
       return this.direction === "left" ? buttons.reverse() : buttons;
     } else {
       return (
         <button
-          class={`btn btn-${this.variant} dropdown-toggle
+          class={`btn btn-${this.variant} text-${
+            this.textVariant
+          } dropdown-toggle
            btn-${this.size ?? "md"}`}
           type="button"
           data-toggle="dropdown"
@@ -73,7 +104,7 @@ export class BxDropdown implements ComponentInterface {
           aria-expanded="false"
           onClick={this.toogleClass.bind(this)}
         >
-          {this.actionText}
+          {this.buttonText}
         </button>
       );
     }
@@ -86,9 +117,11 @@ export class BxDropdown implements ComponentInterface {
         <a
           role="button"
           href="#"
-          class={`btn btn-${this.variant} btn-${this.size ?? "md"}`}
+          class={`btn btn-${this.variant} btn-${this.size ?? "md"} text-${
+            this.textVariant
+          }`}
         >
-          {this.actionText}
+          {this.buttonText}
         </a>,
         <button
           type="button"
@@ -96,35 +129,74 @@ export class BxDropdown implements ComponentInterface {
             btn btn-${this.variant} 
             btn-${this.size ?? "md"}
             dropdown-toggle dropdown-toggle-split
+            text-${this.textVariant}
           `}
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           onClick={this.toogleClass.bind(this)}
         >
-          <span class="sr-only">{this.actionText} Toggle Dropdown</span>
+          <span class="sr-only">{this.buttonText} Toggle Dropdown</span>
         </button>,
       ];
       return this.direction === "left" ? buttons.reverse() : buttons;
     } else {
       return (
         <a
-          class={`btn btn-${this.variant} dropdown-toggle
-           btn-${this.size ?? "md"}`}
+          class={`btn btn-${this.variant} text-white dropdown-toggle
+           btn-${this.size ?? "md"}
+          text-${this.textVariant}
+            `}
           role="button"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           onClick={this.toogleClass.bind(this)}
         >
-          {this.actionText}
+          {this.buttonText}
         </a>
       );
     }
   }
 
+  private generateDropItems() {
+    return this.computedItems.map((item) => {
+      if (item == "divider") {
+        return <div class="dropdown-divider"></div>;
+      } else {
+        if (item.isHeader) {
+          return <h6 class="dropdown-header">{item.text}</h6>;
+        }
+        let link = item.link ?? `#${item.text}`;
+        return (
+          <a
+            class={`dropdown-item ${item.disabled ? "disabled" : ""} ${
+              item.active ? "active" : ""
+            }`}
+            href={link}
+          >
+            {item.text}
+          </a>
+        );
+      }
+    });
+  }
   private async toogleClass(): Promise<void> {
+    if (this.open) {
+      this.closing.emit();
+    } else {
+      this.closing.emit();
+    }
+
     this.open = !this.open;
+
+    window.setTimeout(() => {
+      if (this.open) {
+        this.opened.emit();
+      } else {
+        this.closed.emit();
+      }
+    }, 200);
   }
 
   render() {
@@ -139,23 +211,15 @@ export class BxDropdown implements ComponentInterface {
           class={`dropdown-menu ${this.open ? "show" : ""}`}
           aria-labelledby="dropdownMenuButton"
         >
-          <a class="dropdown-item" href="#">
-            Action
-          </a>
-          <a class="dropdown-item" href="#">
-            Another action
-          </a>
-          <a class="dropdown-item" href="#">
-            Something else here
-          </a>
+          {this.generateDropItems()}
+          <slot></slot>
         </div>
-        <slot></slot>
       </Host>
     );
   }
 
   @Method()
-  async dropdown(): Promise<void> {
+  async toggle(): Promise<void> {
     this.toogleClass();
   }
 
@@ -163,4 +227,9 @@ export class BxDropdown implements ComponentInterface {
   async dispose(): Promise<void> {
     this.element.remove();
   }
+
+  @Event() opening: EventEmitter<void>;
+  @Event() opened: EventEmitter<void>;
+  @Event() closing: EventEmitter<void>;
+  @Event() closed: EventEmitter<void>;
 }
