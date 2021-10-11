@@ -141,7 +141,7 @@ dropdown.dispose();
 
 ### onOpening
 
-Event will be triggered when bx-dropdown is opening.
+Event will be triggered when bx-dropdown is about to open.
 
 ```
 <bx-dropdown dismissible onOpening=() => doSomething() />
@@ -149,7 +149,7 @@ Event will be triggered when bx-dropdown is opening.
 
 ### onOpened
 
-Event will be triggered when the bx-dropdown is opened.
+Event will be triggered when the bx-dropdown has opened.
 
 ```
 <bx-dropdown dismissible onOpened=() => doSomething() />
@@ -157,7 +157,7 @@ Event will be triggered when the bx-dropdown is opened.
 
 ### onClosing
 
-Event will be triggered when the bx-dropdown is closing.
+Event will be triggered when the bx-dropdown is about to close.
 
 ```
 <bx-dropdown dismissible onClosing=() => doSomething() />
