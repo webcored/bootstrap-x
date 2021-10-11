@@ -1,6 +1,6 @@
 # bx-dropdown
 
-Boostrap dropdown component
+Bootstrap dropdown component
 
 # usage
 
@@ -10,7 +10,7 @@ Boostrap dropdown component
       items='[{ "text": "home" , "link" : "/home" },"divider", {"text": "test"}]'
     ></bx-dropdown>
 
-    ---usin custon items --
+    ---using custon items --
     <bx-dropdown button-text="using slot" />
         <a class="dropdown-item" href="#">
             Action
@@ -141,7 +141,7 @@ dropdown.dispose();
 
 ### onOpening
 
-Event will be triggered when the close method is called.
+Event will be triggered when bx-dropdown is opening.
 
 ```
 <bx-dropdown dismissible onOpening=() => doSomething() />
@@ -149,7 +149,7 @@ Event will be triggered when the close method is called.
 
 ### onOpened
 
-Event will be triggered when the close method is called.
+Event will be triggered when the bx-dropdown is opened.
 
 ```
 <bx-dropdown dismissible onOpened=() => doSomething() />
@@ -157,7 +157,7 @@ Event will be triggered when the close method is called.
 
 ### onClosing
 
-Event will be triggered when the close method is called.
+Event will be triggered when the bx-dropdown is closing.
 
 ```
 <bx-dropdown dismissible onClosing=() => doSomething() />

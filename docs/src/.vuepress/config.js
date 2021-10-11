@@ -88,7 +88,7 @@ module.exports = {
         ga: "G-CFB8DMW53J" // UA-00000000-0
       }
     ],
-    "@vuepress/plugin-back-to-top",
-    "@vuepress/plugin-medium-zoom"
+    '@vuepress/plugin-back-to-top',
+    '@vuepress/plugin-medium-zoom'
   ]
 };

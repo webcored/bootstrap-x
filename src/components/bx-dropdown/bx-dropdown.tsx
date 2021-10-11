@@ -26,6 +26,7 @@ import {
 })
 export class BxDropdown implements ComponentInterface {
   // states
+  private readonly DELAY_TIME: number = 200;
   @Element() element: HTMLElement;
   @State() open: boolean = false;
   // props
@@ -37,13 +38,6 @@ export class BxDropdown implements ComponentInterface {
   @Prop() buttonText: string = "Dropdown button";
   @Prop() direction: DropType = "down";
   @Prop() items?: (DropdownItem | Divider)[] | string;
-  // close dropdown when other part of the dom is clicked
-  @Listen("click", { target: "document" })
-  closeOnClickOutSide(e) {
-    if (e.target.parentNode !== this.element) {
-      this.open = false;
-    }
-  }
 
   componentWillLoad() {
     this.items = this.dropDownItems;
@@ -62,26 +56,24 @@ export class BxDropdown implements ComponentInterface {
     }
     return [];
   }
+  private get buttonClass(): string {
+    return `btn btn-${this.variant} btn-${this.size ?? "md"} text-${
+      this.textVariant
+    }`;
+  }
+  private dropButtonDownClass(isSplit: boolean = false) {
+    return `dropdown-toggle ${isSplit ? "dropdown-toggle-split" : ""}`;
+  }
   // renders button based on props
   private renderActionButton() {
     if (this.split) {
       let buttons = [
-        <button
-          type="button"
-          class={`btn btn-${this.variant} btn-${this.size ?? "md"} text-${
-            this.textVariant
-          }`}
-        >
+        <button type="button" class={this.buttonClass}>
           {this.buttonText}
         </button>,
         <button
           type="button"
-          class={`
-            btn btn-${this.variant} 
-            btn-${this.size ?? "md"}
-            dropdown-toggle dropdown-toggle-split
-            text-${this.textVariant}
-          `}
+          class={`${this.buttonClass} ${this.dropButtonDownClass(true)}`}
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
@@ -94,10 +86,7 @@ export class BxDropdown implements ComponentInterface {
     } else {
       return (
         <button
-          class={`btn btn-${this.variant} text-${
-            this.textVariant
-          } dropdown-toggle
-           btn-${this.size ?? "md"}`}
+          class={`${this.buttonClass} ${this.dropButtonDownClass()}`}
           type="button"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -114,23 +103,12 @@ export class BxDropdown implements ComponentInterface {
   private renderActionAchor() {
     if (this.split) {
       let buttons = [
-        <a
-          role="button"
-          href="#"
-          class={`btn btn-${this.variant} btn-${this.size ?? "md"} text-${
-            this.textVariant
-          }`}
-        >
+        <a role="button" href="#" class={this.buttonClass}>
           {this.buttonText}
         </a>,
         <button
           type="button"
-          class={`
-            btn btn-${this.variant} 
-            btn-${this.size ?? "md"}
-            dropdown-toggle dropdown-toggle-split
-            text-${this.textVariant}
-          `}
+          class={`${this.buttonClass} ${this.dropButtonDownClass(true)}`}
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
@@ -143,10 +121,7 @@ export class BxDropdown implements ComponentInterface {
     } else {
       return (
         <a
-          class={`btn btn-${this.variant} text-white dropdown-toggle
-           btn-${this.size ?? "md"}
-          text-${this.textVariant}
-            `}
+          class={`${this.buttonClass} ${this.dropButtonDownClass()}`}
           role="button"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -183,9 +158,11 @@ export class BxDropdown implements ComponentInterface {
   }
   private async toogleClass(): Promise<void> {
     if (this.open) {
+      //dropdown is closing
       this.closing.emit();
     } else {
-      this.closing.emit();
+      //dropdown is opening
+      this.opening.emit();
     }
 
     this.open = !this.open;
@@ -196,7 +173,7 @@ export class BxDropdown implements ComponentInterface {
       } else {
         this.closed.emit();
       }
-    }, 200);
+    }, this.DELAY_TIME);
   }
 
   render() {
@@ -216,6 +193,19 @@ export class BxDropdown implements ComponentInterface {
         </div>
       </Host>
     );
+  }
+  // close dropdown when other part of the dom is clicked
+  @Listen("click", { target: "document" })
+  closeOnClickOutSide(e) {
+    if (e.target.parentNode !== this.element) {
+      if (this.open) {
+        this.closing.emit();
+        window.setTimeout(() => {
+          this.closed.emit();
+        }, this.DELAY_TIME);
+      }
+      this.open = false;
+    }
   }
 
   @Method()
