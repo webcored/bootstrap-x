@@ -5,8 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AdditionalVariants, Sizes, Variants, } from "./shared/bootstrap.dto";
-import { Breadcrumb, } from "./components/bx-breadcrumb/bx-breadcrumb.dto";
+import { AdditionalVariants, Sizes, Variants } from "./shared/bootstrap.dto";
+import { Breadcrumb } from "./components/bx-breadcrumb/bx-breadcrumb.dto";
+import { Divider, DropdownItem, DropType } from "./components/bx-dropdown/bx-dropdown.dto";
 export namespace Components {
     interface BxAlert {
         "alert": () => Promise<boolean>;
@@ -46,6 +47,18 @@ export namespace Components {
     }
     interface BxContainer {
     }
+    interface BxDropdown {
+        "buttonText": string;
+        "direction": DropType;
+        "dispose": () => Promise<void>;
+        "isLink": boolean;
+        "items"?: (DropdownItem | Divider)[] | string;
+        "size": Sizes;
+        "split": boolean;
+        "textVariant": Variants;
+        "toggle": () => Promise<void>;
+        "variant": Variants;
+    }
     interface BxSpinner {
         "dispose": () => Promise<void>;
         "grow": boolean;
@@ -84,6 +97,12 @@ declare global {
         prototype: HTMLBxContainerElement;
         new (): HTMLBxContainerElement;
     };
+    interface HTMLBxDropdownElement extends Components.BxDropdown, HTMLStencilElement {
+    }
+    var HTMLBxDropdownElement: {
+        prototype: HTMLBxDropdownElement;
+        new (): HTMLBxDropdownElement;
+    };
     interface HTMLBxSpinnerElement extends Components.BxSpinner, HTMLStencilElement {
     }
     var HTMLBxSpinnerElement: {
@@ -96,6 +115,7 @@ declare global {
         "bx-breadcrumb": HTMLBxBreadcrumbElement;
         "bx-button": HTMLBxButtonElement;
         "bx-container": HTMLBxContainerElement;
+        "bx-dropdown": HTMLBxDropdownElement;
         "bx-spinner": HTMLBxSpinnerElement;
     }
 }
@@ -135,6 +155,20 @@ declare namespace LocalJSX {
     }
     interface BxContainer {
     }
+    interface BxDropdown {
+        "buttonText"?: string;
+        "direction"?: DropType;
+        "isLink"?: boolean;
+        "items"?: (DropdownItem | Divider)[] | string;
+        "onClosed"?: (event: CustomEvent<void>) => void;
+        "onClosing"?: (event: CustomEvent<void>) => void;
+        "onOpened"?: (event: CustomEvent<void>) => void;
+        "onOpening"?: (event: CustomEvent<void>) => void;
+        "size"?: Sizes;
+        "split"?: boolean;
+        "textVariant"?: Variants;
+        "variant"?: Variants;
+    }
     interface BxSpinner {
         "grow"?: boolean;
         "small"?: boolean;
@@ -146,6 +180,7 @@ declare namespace LocalJSX {
         "bx-breadcrumb": BxBreadcrumb;
         "bx-button": BxButton;
         "bx-container": BxContainer;
+        "bx-dropdown": BxDropdown;
         "bx-spinner": BxSpinner;
     }
 }
@@ -158,6 +193,7 @@ declare module "@stencil/core" {
             "bx-breadcrumb": LocalJSX.BxBreadcrumb & JSXBase.HTMLAttributes<HTMLBxBreadcrumbElement>;
             "bx-button": LocalJSX.BxButton & JSXBase.HTMLAttributes<HTMLBxButtonElement>;
             "bx-container": LocalJSX.BxContainer & JSXBase.HTMLAttributes<HTMLBxContainerElement>;
+            "bx-dropdown": LocalJSX.BxDropdown & JSXBase.HTMLAttributes<HTMLBxDropdownElement>;
             "bx-spinner": LocalJSX.BxSpinner & JSXBase.HTMLAttributes<HTMLBxSpinnerElement>;
         }
     }

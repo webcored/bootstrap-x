@@ -1,4 +1,4 @@
-const { description } = require('../../package')
+const { description } = require('../../package');
 
 module.exports = {
   /**
@@ -18,10 +18,13 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#000' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    [
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }
+    ]
   ],
 
-  base: "/bootstrap-x/",
+  base: '/bootstrap-x/',
 
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -37,7 +40,7 @@ module.exports = {
     nav: [
       {
         text: 'Guide',
-        link: '/guide/',
+        link: '/guide/'
       },
       {
         text: 'Issues',
@@ -53,7 +56,7 @@ module.exports = {
         title: 'Guide',
         path: '/guide/',
         collapsable: false,
-        sidebarDepth: 1,
+        sidebarDepth: 1
       },
       {
         title: 'Components',
@@ -64,15 +67,14 @@ module.exports = {
           { title: 'B𝕏 Breadcrumbs', path: '/components/bx-breadcrumb' },
           { title: 'B𝕏 Button', path: '/components/bx-button' },
           { title: 'B𝕏 Spinner', path: '/components/bx-spinner' },
+          { title: 'B𝕏 DropDown', path: '/components/bx-dropdown' }
         ]
       },
       {
         title: 'Layouts',
         collapsable: false,
-        children: [
-          { title: 'B𝕏 Container', path: '/layouts/bx-container' },
-        ]
-      },
+        children: [{ title: 'B𝕏 Container', path: '/layouts/bx-container' }]
+      }
     ]
   },
 
@@ -83,10 +85,10 @@ module.exports = {
     [
       '@vuepress/google-analytics',
       {
-        'ga': 'G-CFB8DMW53J' // UA-00000000-0
+        ga: 'G-CFB8DMW53J' // UA-00000000-0
       }
     ],
     '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    '@vuepress/plugin-medium-zoom'
   ]
-}
+};
